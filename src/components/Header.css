@@ -1,0 +1,566 @@
+/* Header.css */
+.black-bg-2 { background: #0E2A46; }
+
+/* ===========================
+   Header Top Bar
+=========================== */
+.ed-header-top { padding: 8px 0; }
+
+.header-top-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-top-left ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-top-left ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+}
+
+.header-top-left ul li a {
+  color: rgba(255,255,255,0.8);
+  transition: color 0.3s;
+}
+.header-top-left ul li a:hover { color: #fff; }
+.header-top-left ul li i img { width: 16px; height: 16px; }
+
+.header-top-social { display: flex; gap: 12px; }
+
+.header-top-social a {
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.header-top-social a:hover {
+  background: var(--tp-theme-1);
+  border-color: var(--tp-theme-1);
+  color: #fff;
+}
+
+/* ===========================
+   Main Header
+=========================== */
+.ed-header-area {
+  background: #fff;
+  padding: 12px 0;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 100;
+}
+
+.ed-header-area.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+/* ===========================
+   Logo
+=========================== */
+.header-logo {
+  flex-shrink: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.header-logo a { text-decoration: none; }
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.logo-img-main {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logo-img-sm {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.logo-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 42px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: #0d2247;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+.logo-sub {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #fff;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #0d1f3c, #1a3a6e);
+  padding: 8px 16px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(13,31,60,0.3);
+  display: block;
+}
+
+/* ===========================
+   Desktop Nav
+=========================== */
+.main-nav.desktop-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.desktop-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop-nav .nav-item { position: relative; }
+
+.desktop-nav .nav-item > a {
+  display: block;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ed-dark);
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.desktop-nav .nav-item:hover > a,
+.desktop-nav .nav-item.active > a { color: var(--tp-theme-1); }
+
+/* ── Dropdown Submenu ── */
+.desktop-nav .submenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background: #fff;
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+  padding: 8px 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 200;
+  display: flex;            /* ← fix */
+  flex-direction: column;   /* ← fix: vertical list */
+}
+
+.desktop-nav .nav-item:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.desktop-nav .submenu li a {
+  display: block;
+  padding: 9px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ed-dark);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.desktop-nav .submenu li a:hover {
+  color: var(--tp-theme-1);
+  padding-left: 28px;
+  background: rgba(23,184,166,0.06);
+}
+
+/* ===========================
+   Header Buttons
+=========================== */
+.header-btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.mobile-menu-btn {
+  background: none;
+  border: 2px solid var(--ed-dark);
+  border-radius: 6px;
+  width: 40px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--ed-dark);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ===========================
+   OFFCANVAS
+=========================== */
+.itoffcanvas {
+  position: fixed;
+  top: 0;
+  right: -110%;
+  width: 320px;
+  height: 100%;
+  background: #fff;
+  z-index: 9998;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 30px 22px;
+  transition: right 0.4s ease;
+  box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+.itoffcanvas.active { right: 0; }
+
+.close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: var(--tp-theme-1);
+  color: #fff;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offcanvas-logo {
+  margin-bottom: 18px;
+  padding-right: 44px;
+}
+.offcanvas-logo a { text-decoration: none; }
+
+/* ===== OFFCANVAS LOGO ===== */
+.itoffcanvas .logo-wrap {
+  gap: 10px;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.itoffcanvas .logo-img-sm {
+  width: 75px;
+  height: 75px;
+  flex-shrink: 0;
+}
+
+.itoffcanvas .logo-text-wrap {
+  flex: 1;
+  min-width: 0;
+  overflow: visible;
+}
+
+.itoffcanvas .logo-name {
+  font-size: 26px;
+  letter-spacing: 5px;
+  white-space: nowrap;
+  margin-bottom: 6px;
+}
+
+.itoffcanvas .logo-sub {
+  font-size: 9px;
+  letter-spacing: 1px;
+  padding: 5px 8px;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.offcanvas-text p {
+  color: #666;
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* ===========================
+   Mobile Nav (inside offcanvas)
+=========================== */
+.mobile-nav { margin-bottom: 22px; }
+.mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
+
+.mobile-nav-link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-nav-link-row a {
+  display: block;
+  padding: 12px 0;
+  font-weight: 600;
+  color: var(--ed-dark);
+  font-size: 15px;
+  flex: 1;
+  text-decoration: none;
+}
+.mobile-nav-link-row a:hover { color: var(--tp-theme-1); }
+
+.submenu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 6px;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-arrow {
+  font-size: 14px;
+  color: var(--tp-theme-1);
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.toggle-arrow.open { transform: rotate(180deg); }
+
+.mobile-submenu {
+  list-style: none;
+  padding-left: 15px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.mobile-submenu.open {
+  max-height: 500px;
+  padding: 5px 0 5px 15px;
+  margin-bottom: 5px;
+}
+
+.mobile-submenu li a {
+  display: block;
+  padding: 9px 0;
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  color: var(--ed-dark);
+  text-decoration: none;
+}
+.mobile-submenu li a:hover { color: var(--tp-theme-1); }
+.mobile-submenu li:last-child a { border-bottom: none; }
+
+/* ===========================
+   Offcanvas Info
+=========================== */
+.offcanvas-info h3 {
+  font-size: 17px;
+  margin-bottom: 14px;
+  color: var(--ed-dark);
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.info-item i {
+  color: var(--tp-theme-1);
+  font-size: 15px;
+  margin-top: 3px;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.info-item div { flex: 1; min-width: 0; }
+
+.info-item div span {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+}
+
+.info-item div a {
+  color: var(--ed-dark);
+  font-size: 13px;
+  font-weight: 500;
+  word-break: break-word;
+  text-decoration: none;
+}
+
+/* ===========================
+   Offcanvas Social Icons
+=========================== */
+.offcanvas-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.offcanvas-social a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid #dde3ec;
+  background: #f4f7fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d2247;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.offcanvas-social a:hover {
+  background: var(--tp-theme-1);
+  border-color: var(--tp-theme-1);
+  color: #fff;
+}
+
+/* ===========================
+   Body Overlay
+=========================== */
+.body-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 9997;
+}
+
+.it-header-height { position: relative; z-index: 100; }
+
+/* ===========================
+   Desktop (1200px+)
+=========================== */
+@media (min-width: 1200px) {
+  .mobile-menu-btn { display: none !important; }
+  .desktop-only { display: inline-flex !important; }
+}
+
+/* ===========================
+   Tablet (768px–1199px)
+=========================== */
+@media (max-width: 1199px) {
+  .desktop-nav { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
+  .desktop-only { display: none !important; }
+  .ed-header-area { padding: 8px 0; }
+  .logo-img-main { width: 100px; height: 100px; }
+  .logo-name { font-size: 30px; letter-spacing: 6px; }
+  .logo-sub { font-size: 11px; letter-spacing: 2px; padding: 6px 12px; }
+}
+
+/* ===========================
+   Mobile (max 767px)
+=========================== */
+@media (max-width: 767px) {
+  .ed-header-top { padding: 5px 0; }
+  .header-top-left ul { gap: 10px; }
+  .header-top-left ul li { font-size: 11px; }
+  .header-top-social { gap: 6px; }
+  .header-top-social a { width: 24px; height: 24px; font-size: 11px; }
+  .ed-header-area { padding: 6px 0; }
+  .logo-img-main { width: 80px; height: 80px; }
+  .logo-name { font-size: 24px; letter-spacing: 5px; }
+  .logo-sub { font-size: 9px; padding: 5px 10px; letter-spacing: 2px; }
+  .mobile-menu-btn { width: 36px; height: 32px; font-size: 14px; }
+  .itoffcanvas { width: 300px; }
+}
+
+/* ===========================
+   Small Mobile (max 575px)
+=========================== */
+@media (max-width: 575px) {
+  .header-top-left ul { flex-wrap: wrap; gap: 5px; }
+  .header-top-social { gap: 5px; }
+  .header-top-social a { width: 22px; height: 22px; font-size: 10px; }
+  .logo-wrap { gap: 8px; }
+  .logo-img-main { width: 65px; height: 65px; }
+  .logo-name { font-size: 20px; letter-spacing: 4px; }
+  .logo-sub { font-size: 7.5px; letter-spacing: 1px; padding: 4px 8px; }
+  .mobile-menu-btn { width: 34px; height: 30px; font-size: 13px; }
+  .itoffcanvas { width: 88vw; max-width: 300px; padding: 22px 16px; }
+  .d-none-sm { display: none !important; }
+}
+
+/* ===========================
+   Extra Small (max 400px)
+=========================== */
+@media (max-width: 400px) {
+  .logo-img-main { width: 55px; height: 55px; }
+  .logo-name { font-size: 17px; letter-spacing: 3px; }
+  .logo-sub { font-size: 6.5px; letter-spacing: 0.5px; padding: 3px 6px; }
+  .itoffcanvas { width: 92vw; padding: 20px 14px; }
+  .itoffcanvas .logo-name { font-size: 22px; letter-spacing: 4px; }
+  .itoffcanvas .logo-sub { font-size: 8px; }
+}
