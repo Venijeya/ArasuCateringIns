@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
@@ -8,6 +8,7 @@ import img3 from '../assets/23.JPG';
 import img4 from '../assets/24.JPG';
 import img5 from '../assets/8.jpeg';
 import img6 from '../assets/13.jpeg';
+
 import img7 from '../assets/25.jpeg';
 import img8 from '../assets/26.jpeg';
 import img9 from '../assets/27.jpeg';
@@ -15,10 +16,7 @@ import img10 from '../assets/28.jpeg';
 import img11 from '../assets/29.jpeg';
 import img12 from '../assets/9.jpeg';
 
-const fallbackImgs = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12];
-
-const CLOUD_NAME = 'dpooirudc';
-const UPLOAD_PRESET = 'arasu-gallery';
+const galleryImgs = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12];
 
 const socialLinks = [
   { href: 'https://wa.me/918072107164', icon: 'fab fa-whatsapp', label: 'WhatsApp' },
@@ -29,32 +27,6 @@ const socialLinks = [
 
 const Footer = () => {
   const [lightbox, setLightbox] = useState({ open: false, index: 0 });
-  const [galleryImgs, setGalleryImgs] = useState([]);
-
-  useEffect(() => {
-    const fetchGallery = async () => {
-      try {
-        const res = await fetch(
-          `https://res.cloudinary.com/${CLOUD_NAME}/image/list/${UPLOAD_PRESET}.json`
-        );
-        if (res.ok) {
-          const data = await res.json();
-          if (data.resources && data.resources.length > 0) {
-            const imgs = data.resources.map((r) =>
-              `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/w_400,h_400,c_fill/${r.public_id}.jpg`
-            );
-            setGalleryImgs(imgs);
-            return;
-          }
-        }
-        setGalleryImgs(fallbackImgs);
-      } catch {
-        setGalleryImgs(fallbackImgs);
-      }
-    };
-
-    fetchGallery();
-  }, []);
 
   const openLightbox = (index, e) => {
     e.preventDefault();
@@ -95,6 +67,7 @@ const Footer = () => {
     { label: 'Home', to: '/' },
     { label: 'About Us', to: '/about' },
     { label: 'Courses', to: '/courses' },
+    // { label: 'Blog', to: '/blog' },
     { label: 'Contact Us', to: '/contact' },
   ];
 

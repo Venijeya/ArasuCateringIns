@@ -8,8 +8,6 @@ import CoursesPage from './pages/CoursesPage';
 import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
 import NotFound from './pages/NotFound';
-import AdminLogin from './components/AdminLogin';
-import AdminDashboard from './components/AdminDashboard';
 import './index.css';
 
 // Scroll to top on route change
@@ -87,29 +85,18 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Routes>
-
-        {/* Admin Routes - Header/Footer இல்லாம் */}
-        <Route path="/admin" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-
-        {/* Main Website Routes */}
-        <Route path="/*" element={
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/courses" element={<CoursesPage />} />
-              <Route path="/courses/*" element={<CoursesPage />} />
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/blog/*" element={<BlogPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Layout>
-        } />
-
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/courses" element={<CoursesPage />} />
+          <Route path="/courses/*" element={<CoursesPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/*" element={<BlogPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }
