@@ -58,6 +58,7 @@ const AdminDashboard = () => {
       const formData = new FormData();
       formData.append('file', file);
       formData.append('upload_preset', UPLOAD_PRESET);
+      formData.append('tags', 'arasu-gallery');
 
       try {
         const res = await fetch(
