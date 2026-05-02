@@ -4,6 +4,7 @@ import './AdminDashboard.css';
 
 const CLOUD_NAME = 'dpooirudc';
 const UPLOAD_PRESET = 'arasu-gallery';
+const TAG = 'arasu-gallery';
 
 const AdminDashboard = () => {
   const [images, setImages] = useState([]);
@@ -27,23 +28,24 @@ const AdminDashboard = () => {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const saveToLocal = (imgs) => {
-    localStorage.setItem('arasu_gallery', JSON.stringify(imgs));
-  };
-
-  const loadFromLocal = () => {
-    try {
-      const data = localStorage.getItem('arasu_gallery');
-      return data ? JSON.parse(data) : [];
-    } catch {
-      return [];
-    }
-  };
-
-  const fetchImages = () => {
+  const fetchImages = async () => {
     setLoading(true);
-    const localImgs = loadFromLocal();
-    setImages(localImgs);
+    try {
+      const res = await fetch(
+        `https://res.cloudinary.com/${CLOUD_NAME}/image/list/${TAG}.json`
+      );
+      if (res.ok) {
+        const data = await res.json();
+        const imgs = (data.resources || []).map((r) => ({
+          public_id: r.public_id,
+          url: `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${r.public_id}.jpg`,
+          thumb: `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/w_300,h_300,c_fill/${r.public_id}.jpg`,
+        }));
+        setImages(imgs);
+      }
+    } catch {
+      setImages([]);
+    }
     setLoading(false);
   };
 
@@ -52,13 +54,13 @@ const AdminDashboard = () => {
     if (!files.length) return;
 
     setUploading(true);
-    const newImgs = [];
+    let uploaded = 0;
 
     for (const file of files) {
       const formData = new FormData();
       formData.append('file', file);
       formData.append('upload_preset', UPLOAD_PRESET);
-      formData.append('tags', 'arasu-gallery');
+      formData.append('tags', TAG);
 
       try {
         const res = await fetch(
@@ -66,32 +68,30 @@ const AdminDashboard = () => {
           { method: 'POST', body: formData }
         );
         const data = await res.json();
-        if (data.secure_url) {
-          newImgs.push({
-            public_id: data.public_id,
-            url: data.secure_url,
-            thumb: `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/w_300,h_300,c_fill/${data.public_id}.jpg`,
-          });
-        }
+        if (data.secure_url) uploaded++;
       } catch {
         // continue
       }
     }
 
-    const updated = [...loadFromLocal(), ...newImgs];
-    saveToLocal(updated);
-    setImages(updated);
-    showToast(`${newImgs.length} photo(s) upload ஆச்சு! ✅`);
+    showToast(`${uploaded} photo(s) upload ஆச்சு! ✅`);
     setUploading(false);
     fileInputRef.current.value = '';
+    setTimeout(fetchImages, 1500);
   };
 
-  const handleDelete = (public_id) => {
-    const updated = images.filter((img) => img.public_id !== public_id);
-    saveToLocal(updated);
-    setImages(updated);
+  const handleDelete = async (public_id) => {
+    try {
+      await fetch('/api/delete-image', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ public_id }),
+      });
+    } catch {}
+    setImages((prev) => prev.filter((img) => img.public_id !== public_id));
     setDeleteConfirm(null);
     showToast('Photo deleted! ✅');
+    setTimeout(fetchImages, 1500);
   };
 
   const handleLogout = () => {
@@ -164,7 +164,7 @@ const AdminDashboard = () => {
             <div className="admin-gallery-grid">
               {images.map((img) => (
                 <div key={img.public_id} className="admin-gallery-item">
-                  <img src={img.thumb || img.url} alt="Gallery" />
+                  <img src={img.thumb} alt="Gallery" />
                   <button
                     className="delete-btn"
                     onClick={() => setDeleteConfirm(img.public_id)}
