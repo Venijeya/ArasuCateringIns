@@ -16,7 +16,7 @@ import photoSivashankar  from '../assets/Mr Sivashankar.jpeg';
 import photoGurulakshmi  from '../assets/Ms GuruLakshmi.jpeg';
 import photoJeyalakshmi  from '../assets/JeyaLakshmi.jpeg';
 import photoJayanthi     from '../assets/Ms jeyanthi.jpeg';
-import photoFounder      from '../assets/Mr.M.Diccot Jackson.png';
+import photoFounder      from '../assets/Mr.M.Diccot Jackson.jpeg';
 import photoKadhar       from '../assets/M.Kadhar.jpeg';
 
 // ── DATA ────────────────────────────────────────────────────────────────────
@@ -186,12 +186,10 @@ const AboutPage = () => {
             />
             <div className="ap-founder-text">
               <span className="ap-founder-label">Founded by</span>
-              <span className="ap-founder-name">
-  Mr. M. Diccott Jackson <span className="ap-founder-qual">— MBA, B.D</span>
-</span>
+              <span className="ap-founder-name">Mr. M. Diccott Jackson</span>
             </div>
             <div className="ap-founder-tag">
-              <i className="fas fa-user-tie" /> Founder &amp; Director
+              <i className="fas fa-award" /> Founder &amp; Director
             </div>
           </div>
         </div>
