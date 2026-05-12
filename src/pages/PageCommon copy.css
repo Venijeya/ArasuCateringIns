@@ -122,12 +122,10 @@
   min-width: 180px;
 }
 
-/* UPDATED: height increased 180px → 260px */
 .courses-page-area .course-thumb img {
-  height: 260px;
+  height: 180px;
   width: 100%;
   object-fit: cover;
-  object-position: center 10%;
 }
 
 .courses-page-area .course-content { padding: 14px 16px 16px; }
@@ -312,8 +310,7 @@
   .form-row { grid-template-columns: 1fr; gap: 0; }
   .courses-page-area { padding: 20px 0 40px; }
   .courses-page-area .courses-grid .course-card { flex: 0 0 200px; width: 200px; min-width: 200px; }
-  /* UPDATED: 140px → 200px */
-  .courses-page-area .course-thumb img { height: 200px; }
+  .courses-page-area .course-thumb img { height: 140px; }
   .courses-page-area .course-title { font-size: 13px; }
   .contact-info-list { gap: 18px; }
   .ci-icon { width: 44px; height: 44px; font-size: 17px; }
@@ -331,8 +328,7 @@
   .contact-form input,
   .contact-form textarea { padding: 12px 14px; font-size: 14px; }
   .courses-page-area .courses-grid .course-card { flex: 0 0 170px; width: 170px; min-width: 170px; }
-  /* UPDATED: 120px → 170px */
-  .courses-page-area .course-thumb img { height: 170px; }
+  .courses-page-area .course-thumb img { height: 120px; }
   .courses-page-area .course-title { font-size: 12px; }
 }
 

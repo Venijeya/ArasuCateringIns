@@ -125,8 +125,7 @@
 .logo-text-wrap {
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  overflow: hidden;
+  align-items: center;  /* ← இதை சேர்க்கவும் / மாற்றவும் */
 }
 
 .logo-name {
@@ -153,6 +152,9 @@
   white-space: nowrap;
   box-shadow: 0 2px 8px rgba(13,31,60,0.3);
   display: block;
+  width: fit-content;
+  /* margin: 4px auto 0 auto;  ← இதை மட்டும் சேர்க்கவும் */
+  margin: 4px 0 0 0;  /* auto → 0 */
 }
 
 /* ===========================

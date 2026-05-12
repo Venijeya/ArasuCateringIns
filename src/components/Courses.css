@@ -1,551 +1,210 @@
-/* ══════════════════════════════════
-   GLOBAL RESET
-══════════════════════════════════ */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
+/* ==========================================
+   Courses.css
+   Hover content TOP on image
+========================================== */
+
+/* GRID */
+.cp-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:28px;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+/* CARD */
+.cp-card{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+  transition:all .3s ease;
+  position:relative;
 }
 
-/* ══════════════════════════════════
-   HOME SECTION – DESKTOP
-══════════════════════════════════ */
-.course-section {
-  padding: 60px 0;
-  background: #f4f6fb;
-  overflow-x: hidden;
-  width: 100%;
+.cp-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 14px 35px rgba(0,0,0,.14);
 }
 
-.course-header {
-  text-align: center;
-  margin-bottom: 40px;
+/* IMAGE */
+.cp-thumb{
+  width:100%;
+  aspect-ratio:4/3;
+  overflow:hidden;
 }
 
-.ed-section-subtitle {
-  display: inline-block;
-  background: #17b8a6;
-  color: #fff;
-  padding: 5px 18px;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+.cp-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .4s ease;
 }
 
-.ed-section-title {
-  font-size: 32px;
-  color: #001d3d;
-  margin: 14px 0 5px;
-  font-weight: 700;
+.cp-thumb img.portrait{
+  object-position:center top;
 }
 
-.tamil-approval-text {
-  font-size: 14px;
-  color: #555;
+.cp-card:hover .cp-thumb img{
+  transform:scale(1.05);
 }
 
-.courses-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+/* ==========================================
+   HOVER BOX TOP SIDE
+========================================== */
+.cp-hover-overlay{
+  position:absolute;
+  left:18px;
+  right:18px;
+  top:18px;
+
+  background:linear-gradient(
+    145deg,
+    rgba(13,34,71,.96),
+    rgba(23,184,166,.93)
+  );
+
+  border-radius:14px;
+  padding:18px;
+  z-index:10;
+
+  opacity:0;
+  transform:translateY(-20px);
+  transition:all .35s ease;
+
+  pointer-events:none;
 }
 
-.course-card {
-  background: #fff;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
-  width: 100%;
-  min-width: 0;
+.cp-card:hover .cp-hover-overlay{
+  opacity:1;
+  transform:translateY(0);
 }
 
-.course-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.13);
+/* CONTENT */
+.cp-hover-inner{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
-.course-thumb {
-  position: relative;
-  width: 100%;
-  height: 175px;
-  overflow: hidden;
-  flex-shrink: 0;
+.cp-hover-title{
+  font-size:14px;
+  font-weight:700;
+  color:#fff;
+  line-height:1.4;
+  margin:0;
 }
 
-.course-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.cp-hover-desc{
+  font-size:12px;
+  color:rgba(255,255,255,.88);
+  line-height:1.6;
+  margin:0;
 }
 
-.course-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: var(--course-color, #17b8a6);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 20px;
-  text-decoration: none;
-  z-index: 2;
+.cp-hover-careers{
+  margin-top:4px;
 }
 
-.course-content {
-  padding: 14px 16px 16px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
+.cp-hover-careers-label{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.65);
 }
 
-.course-uni {
-  font-size: 11px;
-  color: #999;
-  margin-bottom: 6px;
+.cp-hover-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:8px;
 }
 
-.course-title {
-  margin: 0;
+.cp-hover-tag{
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.25);
+  color:#fff;
+  font-size:10px;
+  padding:5px 10px;
+  border-radius:30px;
+  font-weight:600;
 }
 
-.course-title a {
-  font-size: 14px;
-  font-weight: 700;
-  color: #111;
-  text-decoration: none;
-  line-height: 1.4;
-  display: block;
+/* ==========================================
+   NORMAL CARD CONTENT
+========================================== */
+.cp-content{
+  padding:16px 18px 18px;
 }
 
-.course-title a:hover {
-  color: var(--course-color, #17b8a6);
+.cp-title{
+  font-size:15px;
+  font-weight:700;
+  color:#0d2247;
+  margin:0 0 10px;
+  line-height:1.4;
 }
 
-.course-meta {
-  display: flex;
-  gap: 14px;
-  margin-top: 10px;
-  font-size: 12px;
-  color: #555;
+.cp-info{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  font-size:13px;
+  color:#555;
+  margin-bottom:8px;
 }
 
-.course-meta span {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.cp-info span{
+  display:flex;
+  align-items:center;
+  gap:5px;
 }
 
-.course-meta i {
-  color: var(--course-color, #17b8a6);
-  font-size: 12px;
+.cp-info i{
+  color:#17b8a6;
 }
 
-.courses-view-all {
-  text-align: center;
-  margin-top: 36px;
+.cp-affiliation{
+  font-size:11px;
+  color:#888;
+  display:flex;
+  gap:6px;
+  line-height:1.5;
 }
 
-.btn-view-all {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #17b8a6;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 14px 36px;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
+.cp-affiliation i{
+  color:#17b8a6;
+  margin-top:2px;
 }
 
-.btn-view-all:hover {
-  background: #13a090;
-  transform: translateY(-2px);
-}
-
-/* ══════════════════════════════════
-   COURSES PAGE – DESKTOP
-   Separate cp-* classes to avoid
-   any conflict with home section
-══════════════════════════════════ */
-.courses-page-area {
-  padding: 60px 0;
-  background: #f4f6fb;
-}
-
-.cp-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-}
-
-.cp-card {
-  background: #fff;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
-  width: 100%;
-  min-width: 0;
-}
-
-.cp-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.13);
-}
-
-.cp-thumb {
-  position: relative;
-  width: 100%;
-  height: 175px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.cp-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.cp-content {
-  padding: 14px 16px 16px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  background: #fff;
-}
-
-.cp-title {
-  margin: 0 0 8px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #111;
-  line-height: 1.4;
-}
-
-.cp-title a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.cp-title a:hover {
-  color: #17b8a6;
-}
-
-.cp-info {
-  display: flex;
-  gap: 12px;
-  font-size: 12px;
-  color: #555;
-  flex-wrap: wrap;
-}
-
-.cp-info span {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.cp-affiliation {
-  font-size: 11px;
-  color: #888;
-  margin-top: 6px;
-  display: flex;
-  align-items: flex-start;
-  gap: 4px;
-}
-
-.cp-footer {
-  margin-top: auto;
-  padding-top: 12px;
-}
-
-.cp-enroll-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #001d3d;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 18px;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-
-.cp-enroll-btn:hover {
-  background: #17b8a6;
-}
-
-/* ══════════════════════════════════
-   TABLET: 3 columns
-══════════════════════════════════ */
-@media (max-width: 1199px) and (min-width: 601px) {
-  .courses-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .cp-grid {
-    grid-template-columns: repeat(3, 1fr);
+/* ==========================================
+   RESPONSIVE
+========================================== */
+@media(max-width:900px){
+  .cp-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
   }
 }
 
-/* ══════════════════════════════════
-   MOBILE ≤ 600px
-══════════════════════════════════ */
-@media (max-width: 600px) {
-
-  /* ── HOME SECTION ── */
-  .course-section {
-    padding: 30px 0;
-    background: #001d3d;
-    overflow: hidden;
-    width: 100vw;
-    max-width: 100vw;
+@media(max-width:600px){
+  .cp-grid{
+    grid-template-columns:1fr;
+    gap:16px;
   }
 
-  .course-section .container {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 12px;
-    padding-right: 12px;
-    box-sizing: border-box;
-    /* KEY: prevent children from escaping */
-    overflow: hidden;
+  .cp-hover-overlay{
+    left:12px;
+    right:12px;
+    top:12px;
+    padding:14px;
   }
 
-  .ed-section-title {
-    font-size: 22px;
-    color: #fff;
+  .cp-hover-title{
+    font-size:13px;
   }
 
-  .tamil-approval-text {
-    color: rgba(255,255,255,0.75);
-    font-size: 13px;
-  }
-
-  /* Home grid: vertical stack of horizontal cards */
-  .courses-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    max-width: 100%;
-    /* Contain children strictly */
-    overflow: hidden;
-  }
-
-  /* Each card: image LEFT, content RIGHT */
-  .course-card {
-    flex-direction: row;
-    align-items: stretch;
-    border-radius: 10px;
-    min-height: 90px;
-    overflow: hidden;
-    /* CRITICAL: never grow beyond grid width */
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  /* Fixed-width image column */
-  .course-thumb {
-    flex: 0 0 110px;
-    width: 110px;
-    min-width: 110px;
-    max-width: 110px;
-    height: auto;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .course-thumb img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .course-badge {
-    top: 6px;
-    left: 6px;
-    font-size: 9px;
-    padding: 3px 7px;
-    border-radius: 10px;
-  }
-
-  /* Content column: takes remaining space, NEVER overflows */
-  .course-content {
-    /* flex: 1 alone is not enough — need width:0 trick */
-    flex: 1 1 0;
-    min-width: 0;
-    width: 0;
-    padding: 10px 10px 10px 12px;
-    justify-content: center;
-    background: #fff;
-    /* clip any overflow at the edge */
-    overflow: hidden;
-  }
-
-  .course-uni {
-    font-size: 10px;
-    margin-bottom: 3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #888;
-  }
-
-  .course-title {
-    margin: 0;
-    overflow: hidden;
-  }
-
-  /* Title: 2-line clamp, NEVER bleeds out */
-  .course-title a {
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.35;
-    color: #111;
-    text-decoration: none;
-    /* wrap & clamp */
-    white-space: normal;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    /* ensure it cannot push parent wider */
-    max-width: 100%;
-  }
-
-  .course-meta {
-    display: flex;
-    gap: 8px;
-    margin-top: 6px;
-    font-size: 10px;
-    flex-wrap: wrap;
-    overflow: hidden;
-  }
-
-  .course-meta span {
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .courses-view-all {
-    margin-top: 20px;
-  }
-
-  .btn-view-all {
-    font-size: 14px;
-    padding: 11px 26px;
-  }
-
-  /* ── COURSES PAGE ── */
-  .courses-page-area {
-    padding: 20px 0 30px;
-    background: #f4f6fb;
-  }
-
-  .courses-page-area .container {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  /* Courses page: vertical stack */
-  .cp-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-  }
-
-  /* Courses page card: image ON TOP, content BELOW */
-  .cp-card {
-    flex-direction: column;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  .cp-thumb {
-    width: 100%;
-    height: 200px;
-    position: relative;
-    flex-shrink: 0;
-    overflow: hidden;
-  }
-
-  .cp-thumb img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .cp-content {
-    padding: 14px;
-    width: 100%;
-    min-width: 0;
-    background: #fff;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .cp-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #111;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    white-space: normal;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-
-  .cp-info {
-    font-size: 12px;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .cp-affiliation {
-    font-size: 11px;
-    margin-top: 6px;
-  }
-
-  .cp-footer {
-    margin-top: 12px;
-  }
-
-  .cp-enroll-btn {
-    font-size: 13px;
-    padding: 8px 20px;
+  .cp-hover-desc{
+    font-size:11px;
   }
 }

@@ -45,20 +45,21 @@ const Header = () => {
     setOpenSubMenu(null);
   };
 
- const navItems = [
-  { label: 'Home', path: '/' },
-  {
-    label: 'About Us',
-    path: '/about',
-    children: [
-      { label: 'Our Story',        path: '/about#our-story' },
-      { label: 'Vision & Mission', path: '/about#vision-mission' },
-      { label: 'Our Team',         path: '/about#our-team' },
-      { label: 'Achievements',     path: '/about#achievements' },
-    ],
-  },
-  { label: 'Courses', path: '/courses' },
-];
+  const navItems = [
+    { label: 'Home', path: '/' },
+    {
+      label: 'About Us',
+      path: '/about',
+      children: [
+        { label: 'Our Story',        path: '/about#our-story' },
+        { label: 'Vision & Mission', path: '/about#vision-mission' },
+        { label: 'Our Team',         path: '/about#our-team' },
+        { label: 'Achievements',     path: '/about#achievements' },
+      ],
+    },
+    { label: 'Courses', path: '/courses' },
+  ];
+
   const socialLinks = [
     {
       href: 'https://www.facebook.com/profile.php?id=61573265734167',
@@ -91,8 +92,8 @@ const Header = () => {
             <div className="logo-wrap">
               <img src={require('../assets/Arasu_logo.png')} alt="Arasu Logo" className="logo-img-sm" />
               <div className="logo-text-wrap">
-                <span className="logo-name">ARASU</span>
-                <span className="logo-sub">Institute of Hotel Management</span>
+                <span className="logo-name">ARASU INSTITUTE</span>
+                <span className="logo-sub">VIRUDHUNAGAR</span>
               </div>
             </div>
           </Link>
@@ -155,8 +156,6 @@ const Header = () => {
             <i className="fas fa-map-marker-alt"></i>
             <div><span>LOCATION</span><a href="#">Virudhunagar, Tamil Nadu</a></div>
           </div>
-
-          {/* Social links in offcanvas */}
           <div className="offcanvas-social">
             <a href="https://wa.me/918072107164" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
               <i className="fab fa-whatsapp"></i>
@@ -191,7 +190,6 @@ const Header = () => {
                   </li>
                 </ul>
               </div>
-
               <div className="header-top-social">
                 <a href="https://wa.me/918072107164" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                   <i className="fab fa-whatsapp"></i>
@@ -202,7 +200,6 @@ const Header = () => {
                   </a>
                 ))}
               </div>
-
             </div>
           </div>
         </div>
@@ -218,8 +215,8 @@ const Header = () => {
                   <div className="logo-wrap">
                     <img src={require('../assets/Arasu_logo.png')} alt="Arasu Logo" className="logo-img-main" />
                     <div className="logo-text-wrap">
-                      <span className="logo-name">ARASU</span>
-                      <span className="logo-sub">Institute of Hotel Management</span>
+                      <span className="logo-name">ARASU INSTITUTE</span>
+                      <span className="logo-sub">VIRUDHUNAGAR</span>
                     </div>
                   </div>
                 </Link>

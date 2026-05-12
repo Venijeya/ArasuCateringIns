@@ -62,7 +62,7 @@ const ContactPage = () => {
               {[
                 { icon: 'fas fa-phone-alt',      label: 'Phone',        value: '80721 07164 / 90874 98181',    href: 'https://wa.me/918072107164', isWhatsApp: true },
                 { icon: 'fas fa-envelope',       label: 'Email',        value: 'arasucollegevnr@gmail.com',    href: 'mailto:arasucollegevnr@gmail.com' },
-                { icon: 'fas fa-globe',          label: 'Website',      value: 'www.arasuinstitute.in',         href: 'https://www.arasuinstitute.in' },
+                { icon: 'fas fa-globe',          label: 'Website',      value: 'www.arasuinstitute.com',         href: null },
                 { icon: 'fas fa-map-marker-alt', label: 'Location',     value: 'Virudhunagar, Tamil Nadu.',    href: '#' },
                 { icon: 'fas fa-clock',          label: 'Office Hours', value: 'Mon – Sat: 9:00 AM – 6:00 PM', href: null },
               ].map((item, i) => (
