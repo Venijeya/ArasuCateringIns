@@ -31,7 +31,7 @@ const About = () => {
   ];
 
   const stats = [
-    { icon: "fas fa-calendar-alt", number: "19+", label: "Years of Excellence" },
+    { icon: "fas fa-calendar-alt", number: "16+", label: "Years of Excellence" },
     { icon: "fas fa-user-graduate", number: "20,000+", label: "Students Trained" },
     { icon: "fas fa-briefcase", number: "100%", label: "Placement Support" },
   ];
@@ -55,7 +55,7 @@ const About = () => {
               <img src={imgBottom} alt="Arasu Institute Students" />
             </div>
             <div className="collage-badge">
-              <span className="badge-number">19+</span>
+              <span className="badge-number">16+</span>
               <span className="badge-line">Years</span>
               <span className="badge-line">Of Experience</span>
             </div>
@@ -85,7 +85,7 @@ const About = () => {
               <div className="legacy-text">
                 <span className="legacy-heading">Our Legacy — Now Entering Our 20th Year</span>
                 <p className="legacy-desc">
-                  Founded over 19 years ago, Arasu Institute has shaped the careers of more than
+                  Founded over 16+ years ago, Arasu Institute has shaped the careers of more than
                   <strong> 20,000 students</strong> from across Tamil Nadu. What started as a vision to provide
                   quality hospitality education in Virudhunagar has grown into a trusted institution
                   proudly stepping into its <strong>20th year of excellence</strong> in 2025–26.
