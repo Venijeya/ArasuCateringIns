@@ -29,133 +29,65 @@
 .instructors-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  gap: 16px;
 }
 
 .instructor-card {
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
   transition: all 0.3s;
+  position: relative;
+  background: #d6ecf5;
 }
 
 .instructor-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.13);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.13);
 }
 
+/* ── Smaller photo: 1:1 square crop ── */
 .instructor-thumb {
-  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
+  position: relative;
 }
 
 .instructor-thumb img {
   width: 100%;
-  height: 240px;
+  height: 100%;
   object-fit: cover;
+  object-position: top center;
   display: block;
   transition: transform 0.4s;
 }
 
 .instructor-card:hover .instructor-thumb img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
-
-/* Social */
-.instructor-social-wrap {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 5;
-}
-
-.social-toggle {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  color: var(--tp-theme-1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  transition: all 0.3s;
-}
-
-.social-toggle:hover { background: var(--tp-theme-1); color: #fff; }
-
-.instructor-socials {
-  display: none;
-  flex-direction: column;
-  gap: 6px;
-  margin-top: 8px;
-}
-
-.instructor-social-wrap:hover .instructor-socials { display: flex; }
-
-.instructor-socials a {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--tp-theme-1);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  transition: background 0.3s;
-}
-
-.instructor-socials a:hover { background: var(--ed-dark); }
 
 /* Info Bar */
 .instructor-info {
+  background: linear-gradient(to top, rgba(14,42,70,0.92) 0%, transparent 100%);
+  padding: 36px 14px 14px;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(14,42,70,0.95) 0%, transparent 100%);
-  padding: 40px 18px 18px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
 }
 
 .instructor-name-box h5 {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 3px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.instructor-name-box h5 a { color: #fff; }
-.instructor-name-box h5 a:hover { color: var(--tp-theme-1); }
-
-.instructor-name-box span {
-  font-size: 12px;
-  color: rgba(255,255,255,0.7);
-}
-
-.inst-arrow {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--tp-theme-1);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  transition: all 0.3s;
-  flex-shrink: 0;
-}
-
-.inst-arrow:hover { background: #fff; color: var(--tp-theme-1); }
-
-/* ── Responsive ──────────────────────────────────────────────────────────── */
+/* ── Responsive ─────────────────────────────────────────── */
 
 @media (max-width: 1199px) {
   .team-grid { gap: 40px; }
@@ -164,20 +96,17 @@
 @media (max-width: 991px) {
   .team-area { padding: 20px 0 50px; }
   .team-grid { grid-template-columns: 1fr; gap: 30px; }
-  .instructors-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .instructors-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
 }
 
 @media (max-width: 767px) {
   .team-area { padding: 20px 0 40px; }
-  .instructor-thumb img { height: 200px; }
   .team-left p { font-size: 14px; }
 }
 
 @media (max-width: 575px) {
   .team-area { padding: 16px 0 30px; }
-  .instructors-grid { grid-template-columns: 1fr; gap: 14px; }
+  .instructors-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .team-btns { flex-direction: column; }
-  .instructor-thumb img { height: 220px; }
-  .instructor-name-box h5 { font-size: 14px; }
-  .instructor-name-box span { font-size: 11px; }
+  .instructor-name-box h5 { font-size: 11px; }
 }
