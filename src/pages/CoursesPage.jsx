@@ -5,9 +5,9 @@ import '../components/Courses.css';
 
 import img1 from '../assets/30.jpeg';
 import img2 from '../assets/31.jpeg';
-import img3 from '../assets/34.jpeg';
+// img3 removed — using Unsplash URL for CCFP (professional chef kitchen)
 import img4 from '../assets/32.jpeg';
-import img5 from '../assets/37.jpeg';
+// img5 removed — using Unsplash URL for MTT (foreign Montessori teacher with kids)
 import img6 from '../assets/35.jpeg';
 import img7 from '../assets/38.jpeg';
 import img8 from '../assets/36.jpeg';
@@ -40,7 +40,8 @@ const allCourses = [
   {
     id: 3,
     title: 'Craft Course in Food Production (CCFP)',
-    image: img3,
+    // Professional chef uniform, restaurant kitchen — Unsplash free
+    image: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&q=80',
     duration: '1 Year',
     eligibility: '10th / +2 Pass',
     affiliation: 'Alagappa University',
@@ -62,7 +63,8 @@ const allCourses = [
   {
     id: 5,
     title: 'Montessori Teacher Training (MTT)',
-    image: img5,
+    // Foreign teacher with small children, activity-based learning — Unsplash free
+    image: 'https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=800&q=80',
     duration: '2 Years',
     eligibility: '+2 Pass',
     affiliation: 'NCVRT – National Council of Vocational Research Training',
