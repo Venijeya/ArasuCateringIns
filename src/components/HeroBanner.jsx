@@ -9,9 +9,12 @@ import heroImg5 from '../assets/12.jpeg';
 import heroImg6 from '../assets/8.jpeg';
 import heroImg7 from '../assets/23.JPG';
 import courseImg1 from '../assets/30.jpeg';
-import courseImg4 from '../assets/3.jpeg';
+import courseImg4 from '../assets/32.jpeg';
 import courseImgDFS from '../assets/33.jpeg';
 import courseImgDGDA from '../assets/35.jpeg';
+
+import courseImgMTT from '../assets/37.jpeg';
+import courseImgCCFP from '../assets/34.jpeg';
 
 const IMAGES = [heroImg1, heroImg2, heroImg3, heroImg4, heroImg5, heroImg6, heroImg7];
 const INTERVAL = 3000;
@@ -136,15 +139,15 @@ const HeroBanner = () => {
       imgPos: 'center 40%',
     },
     {
-      code: 'CCFP',
-      tamil: '',
-      english: 'Craft Course in Food Production',
-      duration: '1',
-      eligibility: ['10th', '+2'],
-      university: 'Alagappa University',
-      img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80&fit=crop&crop=center',
-      imgPos: 'center 35%',
-    },
+  code: 'CCFP',
+  tamil: '',
+  english: 'Craft Course in Food Production',
+  duration: '1',
+  eligibility: ['10th', '+2'],
+  university: 'Alagappa University',
+  img: courseImgCCFP,
+  imgPos: 'center 35%',
+},
     {
       code: 'DFD',
       tamil: 'டிப்ளமோ இன் ஃபேஷன் டிசைனிங்',
@@ -155,17 +158,17 @@ const HeroBanner = () => {
       img: courseImg4,
       imgPos: 'center 30%',
     },
-    {
-      code: 'MTT',
-      tamil: 'மாண்டிசோரி டீச்சர் டிரெயினிங்',
-      english: 'Montessori Teacher Training',
-      duration: '2',
-      eligibility: ['+2'],
-      university: 'NCVRT',
-      img: 'https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&q=80&fit=crop&crop=center',
-      imgPos: 'center 25%',
-    },
-    {
+    // courses array-la MTT object-la இந்த மாத்தம் பண்ணுங்க:
+{
+  code: 'MTT',
+  tamil: 'மாண்டிசோரி டீச்சர் டிரெயினிங்',
+  english: 'Montessori Teacher Training',
+  duration: '2',
+  eligibility: ['+2'],
+  university: 'NCVRT',
+  img: courseImgMTT,
+  imgPos: 'center 30%',
+},    {
       code: 'DGDA',
       tamil: '',
       english: 'Diploma in General Duty Assistant (Nursing)',

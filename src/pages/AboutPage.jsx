@@ -176,27 +176,30 @@ const AboutPage = () => {
       </div>
 
       {/* ── 2. Founder Strip ── */}
-      <section className="ap-founder-strip">
-        <div className="ap-container">
-          <div className="ap-founder-inner">
-            <img
-              className="ap-founder-photo"
-              src={photoFounder}
-              alt="Mr. M. Diccott Jackson"
-            />
-            <div className="ap-founder-text">
-              <span className="ap-founder-label">Founded by</span>
-              <span className="ap-founder-name">
-  Mr. M. Diccott Jackson <span className="ap-founder-qual">— MBA, B.D</span>
-</span>
-            </div>
-            <div className="ap-founder-tag">
-              <i className="fas fa-user-tie" /> Founder &amp; Director
-            </div>
-          </div>
-        </div>
-      </section>
-
+<section className="ap-founder-strip">
+  <div className="ap-container">
+    <div className="ap-founder-inner">
+      <img
+        className="ap-founder-photo"
+        src={photoFounder}
+        alt="Mr. M. Diccott Jackson"
+      />
+      <div className="ap-founder-text">
+        <span className="ap-founder-label">Founded by</span>
+        <span className="ap-founder-name">
+          Mr. M. Diccott Jackson <span className="ap-founder-qual">— MBA, B.D</span>
+        </span>
+        <blockquote className="ap-founder-quote">
+          "True education is not only about earning a degree, but about
+          building character, confidence, and a successful future."
+        </blockquote>
+      </div>
+      <div className="ap-founder-tag">
+        <i className="fas fa-user-tie" /> Founder &amp; Director
+      </div>
+    </div>
+  </div>
+</section>
       {/* ── 3. History ── */}
       <section className="ap-section ap-history" id="our-story">
         <div className="ap-container">
